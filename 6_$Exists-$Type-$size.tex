@@ -1,0 +1,20 @@
+// $exists
+1: db.test.find({age: {$exists: true}})
+---> je je datar mije age feld ase segula dekabe.
+
+2: db.test.find({phone: {$exists: false}})
+---> je datar mije phone feld nai se data gulu dekhabe.
+
+//$type
+3: db.test.find({age: {$type: "string"}})
+---> je je age feld er type string se gula dekhabe.
+
+4: db.test.find({age: {$type: "number"}})
+---> je je age feld er type number se gula dekhabe.
+
+5: db.test.find({friends: {$type: "array"}})
+---> je je friends feld er type array se gula dekhabe.
+
+// $size
+6: db.test.find({friends: {$size: 5}}).project({friends: 1})
+---> je friends er array er modde 5 ta data ase segula dekhabe.

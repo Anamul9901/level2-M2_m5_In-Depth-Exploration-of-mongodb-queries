@@ -1,0 +1,26 @@
+1: update data
+// db.test.updateOne(
+//     {kake update korbo},
+//     {ke update korbo}
+//     )
+
+db.test.updateOne(
+    {_id: ObjectId("6406ad63fc13ae5a40000065")},
+    {
+        $set: {
+            age:80
+        }
+    }
+    )
+
+2: //data: interests: ["Cooking", "Writing", "Reading"]
+db.test.updateOne(
+    {_id: ObjectId("6406ad63fc13ae5a40000065")},
+    {
+        $set: {
+            interests: ["Gaming"]
+        }
+    }
+    )
+    // aivabe update korle age sob data remove hoye new data bosbe
+// now data: interests: ["Gaming"]

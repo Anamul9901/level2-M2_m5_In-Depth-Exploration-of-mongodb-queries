@@ -1,0 +1,44 @@
+1: $unset:
+db.test.updateOne(
+    { _id: ObjectId("6406ad63fc13ae5a40000065") },
+    { $unset: { birthday: 1 } }
+)
+---> je feld ta unset korbo seta delete hoye jabe.
+
+2: $pop:
+2.1:
+db.test.updateOne(
+    { _id: ObjectId("6406ad63fc13ae5a40000065") },
+    { $pop: { friends: 1 } }
+)
+---> pop use korle friends er last theke ekta nam delete hoye jabe.
+
+2.2:
+db.test.updateOne(
+    { _id: ObjectId("6406ad63fc13ae5a40000065") },
+    { $pop: { friends: -1 } }
+)
+---> pop use korle friends er first theke ekta nam delete hoye jabe.
+['friends:1' use korle last theke nam delete hobe. 'friends: -1' use korle first theke nam remove hobe]
+
+
+3: $pull
+db.test.updateOne(
+    { _id: ObjectId("6406ad63fc13ae5a40000065") },
+    { $pull: { friends: "Fahim Ahammed Firoz" } }
+)
+--->  je nam tha pull korbo oita delete hoye jabe
+
+3.2:
+db.test.updateOne(
+    { _id: ObjectId("6406ad63fc13ae5a40000065") },
+    { $pull: { languages: "German" } }
+)
+
+
+4: $pullAll
+db.test.updateOne(
+    { _id: ObjectId("6406ad63fc13ae5a40000065") },
+    { $pullAll: { friends: [ "Mir Hussain", "Tanmoy Parvez" ] } }
+)
+---> pullAll korle friends er full array er data delete hoye jabe

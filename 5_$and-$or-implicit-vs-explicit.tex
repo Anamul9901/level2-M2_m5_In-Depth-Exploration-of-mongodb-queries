@@ -1,0 +1,57 @@
+// Emplicit and
+1. db.test.find({age: {$ne: 15, $lte: 30}}).project({age:1}).sort({age:1})
+
+2. // Explicit and ($and)
+2.1: db.test.find({
+    $and: [
+        { age: { $ne: 15 } },
+        { age: { $lte: 30 } },
+        { gender: "Female" }
+    ]
+}).project({ age: 1, gender: 1 }).sort({ age: 1 })
+
+2.2: db.test.find({
+    $and: [
+        { interests: "Travelling" },
+        { interests: "Cooking" }
+    ]
+}).project({ interests: 1 }).sort({ age: 1 })
+
+2.3: db.test.find({
+    $and: [
+        {"skills.name": "JAVASCRIPT"},
+        {"skills.name":"PYTHON"}
+    ]
+}).project({ skills: 1 }).sort({ age: 1 })
+---> sobgula condition true hote hobe.
+
+
+3. // explicit or ($or)
+3.1: db.test.find({
+    $or: [
+        { age: { $ne: 15 } },
+        { age: { $lte: 30 } },
+        { gender: "Female" }
+    ]
+}).project({ age: 1, gender: 1 }).sort({ age: 1 })
+
+3.2: db.test.find({
+    $or: [
+        { interests: "Travelling" },
+        { interests: "Cooking" }
+    ]
+}).project({ interests: 1 }).sort({ age: 1 })
+
+3.3: db.test.find({
+    $or: [
+        {"skills.name": "JAVASCRIPT"},
+        {"skills.name":"PYTHON"}
+    ]
+}).project({ skills: 1 }).sort({ age: 1 })
+---> ekta condition true hole e data show korbe.
+
+4. $in ta or er motokaj kore. eke feld er khetre
+db.test.find(
+    { "skills.name": { $in: ["JAVASCRIPT", "PYTHON"] } }
+    ).project({ skills: 1 }).sort({ age: 1 })
+

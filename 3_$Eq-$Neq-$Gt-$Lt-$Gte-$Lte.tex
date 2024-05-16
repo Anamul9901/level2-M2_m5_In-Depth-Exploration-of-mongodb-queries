@@ -1,0 +1,22 @@
+Mongodb Operators[comparison Query Operator] (go website: https://www.mongodb.com/docs/manual/reference/operator/query-comparison/ )
+
+1. $eq-> db.test.find({ age: { $eq: 12 } })
+--->  $eq means equal(==). show only age=12 data.
+
+2. $ne-> db.test.find({ age: { $ne: 12 } })
+---> $ne means not-equal(!=). show all data without age=12
+
+3. $gt-> db.test.find({ age: { $gt: 30 } })
+---> $gt means geter-then(>)
+
+4. db.test.find({ age: { $gte: 30 } })
+---> $gte means geater-then-equal(>=)
+
+5. db.test.find({ age: { $gte: 30 } }).sort({ age: 1 })
+--> sort  minimum to maximum
+
+6. db.test.find({ age: { $lt: 30 } }).sort({ age: 1 })
+---> $lt means less-than(<)
+
+6. db.test.find({ age: { $lte: 30 } }).sort({ age: 1 })
+---> $lte means less-than-equal(<=)

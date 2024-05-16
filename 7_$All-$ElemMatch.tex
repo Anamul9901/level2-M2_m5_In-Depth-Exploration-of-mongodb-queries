@@ -1,0 +1,29 @@
+1: db.test.find({interests: "Cooking"}).project(({interests: 1}))
+---> interests data er mje Cooking thakle segula dekhabe.
+
+2: db.test.find({"interests.2": "Cooking"}).project(({interests: 1}))
+---> interests er mije Cooking jegula 2 index e ase sodu segula dekhabe.
+
+3:
+db.test.find({
+    skills: {
+        name: "JAVASCRIPT",
+        level: "Intermidiate",
+        isLearning: false
+    }
+
+})
+    .project(({ skills: 1 }))
+    ---> aivabe lekle hubuhu same hole data show korbe.
+
+4: ($elemMatch)
+db.test.find({
+    skills: { $elemMatch : {
+        name: "JAVASCRIPT",
+        level: "Intermidiate",
+    }
+    }
+
+})
+    .project(({ skills: 1 }))
+    ---> name r level match hole data dekhabe

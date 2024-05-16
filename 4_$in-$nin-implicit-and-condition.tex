@@ -1,0 +1,33 @@
+1. db.test.find({ age: { $gt: 18, $lte: 30 }, gender: "Female" }, { age: 1, gender: 1 }).sort({ age: 1 })
+--->(comma use kore implicit and) age 18 thek boro and 30 theke chuto ba soman. And gender only female.
+
+2.$in:  db.test.find({
+    age: { $in: [18, 20, 22, 24, 26, 28, 30] },
+    gender: "Female"
+    },
+    { age: 1, gender: 1 }).sort({ age: 1 })
+---> $in  : age = 18, 20, 22, 24, 26, 28, 30 er modde hole show korbe.
+[$in eke feld er kehtre kaj korbe]
+
+2.$nin:  db.test.find({
+    age: { $nin: [18, 20, 22, 24, 26, 28, 30] },
+    gender: "Female"
+    },
+    { age: 1, gender: 1 }).sort({ age: 1 })
+---> $nin  : age = 18, 20, 22, 24, 26, 28, 30 eigula bade show korbe.
+
+3. db.test.find({
+    age: { $nin: [18, 20, 22, 24, 26, 28, 30] },
+    gender: "Female",
+    interests: "Cooking"
+},
+    { age: 1, gender: 1, interests: 1 }).sort({ age: 1 })
+---> interests: Cooking je gulate ase only segula dekhabe
+
+4. db.test.find({
+    age: { $nin: [18, 20, 22, 24, 26, 28, 30] },
+    gender: "Female",
+    interests: { $in: ["Cooking", "Gaming"] }
+},
+    { age: 1, gender: 1, interests: 1 }).sort({ age: 1 })
+---> interests: Cooking ba Gaming jegulate ase only segula dekhabe

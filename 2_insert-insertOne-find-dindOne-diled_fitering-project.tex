@@ -1,0 +1,31 @@
+Insert:
+1. db.test.insertOne({name: "Anamul"})
+---> for save a data
+
+2.db.test.insertMany([
+    { name: "Complete Web Development" },
+    { name: "Next level Web development" }
+])
+---> for many data save
+
+
+
+
+Find:
+1. db.test.find({})
+---> for find all data
+
+2. db.test.findOne({age: 17})
+---> find a data
+
+3. db.test.find({age: 17})
+---> find all data which age = 17 ( key: age, value: 17)
+
+4. db.test.find({gender: "Female"}, {gender: 1, name: 1, email: 1}) 
+or  db.test.find({gender: "Female"}).project({gender:1 ,name:1, email:1}) 
+---> Feld-filtering: show only gender, name, email's data 
+[note: findOne er sathe project use kora jabe nah. tai eita use korbo nah]
+
+
+
+
